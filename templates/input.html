@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mainpage - Dressing system</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='input.css') }}">
+</head>
+<body class="input-page">
+    <div class="nav-bar">
+        <a href="{{ url_for('mainpage') }}">Home</a>
+        <a href="{{ url_for('input_page') }}">Add Item</a> <!-- Link to the input page -->
+        <a href="{{ url_for('closet_page') }}">My Closet</a> <!-- Link to the closet page -->
+         </div>
+
+   <form action="{{ url_for('add_clothes') }}" method="POST" enctype="multipart/form-data">
+    <div class="input-container">
+        <div class="name">
+            <label>Clothing Name: </label>
+            <input type="text" name="Name" required>
+        </div>
+        <div class="color">
+            <label>Color: </label>
+            <input type="text" name="color" required>
+        </div>
+        <div class="category">
+            <label>Category: </label>
+            <select name="category" required>
+                <option value="">Select Category</option>
+                <option value="top">Top</option>
+                <option value="dress">Dress</option>
+                <option value="skirt">Skirt</option>
+                <option value="pants">Pants</option>
+                <option value="shoes">Shoes</option>
+                <option value="bags">Bag</option>
+            </select>
+        </div>
+        <div class="image">
+            <label>Upload Photo: </label>
+            <input type="file" name="image" accept="image/*" required>
+        </div>
+        <div>
+            <button type="submit">Add Clothes</button>
+
+            
+        </div>
+    </div>
+    </form>
+    <div class="list-container">
+        <h2>list of clothes</h2>
+        {% for item in clothing_list %}
+        <div class="clothing-item">
+            <p>name: {{ item[1] }}</p>
+            <p>color: {{ item[2] }}</p>
+            <p>category:{{ item[3] }}</p>
+ 
+     
+        
+            
+
+<form action="{{ url_for('update_clothes', id=item[0]) }}" method="POST" enctype="multipart/form-data">
+    <label>Name:</label>
+    <input type="text" name="Name" value="{{ item[1] }}" required><br>
+
+    <label>Color:</label>
+    <input type="text" name="color" value="{{ item[2] }}" required><br>
+
+    <label>Category:</label>
+     <select name="category" required>
+    <option value="">Select Category</option>
+    <option value="top" {% if item[3] == 'top' %}selected{% endif %}>Top</option>
+    <option value="dress" {% if item[3] == 'dress' %}selected{% endif %}>Dress</option>
+    <option value="skirt" {% if item[3] == 'skirt' %}selected{% endif %}>Skirt</option>
+    <option value="pants" {% if item[3] == 'pants' %}selected{% endif %}>Pants</option>
+    <option value="shoes" {% if item[3] == 'shoes' %}selected{% endif %}>Shoes</option>
+    <option value="bags" {% if item[3] == 'bags' %}selected{% endif %}>Bag</option>
+</select>
+
+    <label>Image:</label>
+    <input type="file" name="image"><br>
+    {% if item[4] %}
+    <img src="{{ url_for('static', filename='uploads/' ~ item[4]) }}" width="150">
+    {% endif %}
+
+    <button type="submit">Save</button>
+</form>
+
+    <form action = "{{url_for('delete_clothes', id=item[0]) }}" method='POST'>
+                <button type="submit">Delete</button>
+                
+            </form>
+        </div> <!-- closes clothing-item -->
+        {% endfor %}
+    </div>
+
+    
+
+
+
+</body>

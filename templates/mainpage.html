@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mainpage - Dressing system</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Playwrite+MX+Guides&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Playwrite+HU:wght@100..400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Stack+Sans+Headline:wght@200..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+
+<body class="main-page">
+<img src="{{ url_for('static', filename='try3.png') }}" 
+     alt="My Photo" 
+     class="front-image">
+    <div class="nav-bar">
+        <a href="{{ url_for('mainpage') }}">Home</a>
+        <a href="{{ url_for('input_page') }}">Add Item</a> <!-- Link to the input page -->
+        <a href="{{ url_for('closet_page') }}">My Closet</a> <!-- Link to the closet page -->
+         </div>
+   <div class="closette">
+   <h2 class="clos">Clos</h2>
+   <h2 class="ette">ette</h2>
+   </div>
+    <p class="tagline">Curate Your Style</p>
+
+   
+   
+  <div class="image-container">
+    
+  <img src="{{ url_for('static', filename='unnamed (23).jpg') }}" 
+     alt="first" 
+     class="first-img">
+   <img src="{{ url_for('static', filename='unnamed (29).jpg') }}" 
+     alt="second" 
+     class="second-img">
+     </div>
+
+ 
+  
+     
+      <div class="about-me">
+               <img src="{{ url_for('static', filename='unnamed__28_-removebg-preview.png') }}"
+      class="about-me-pic">
+      <h2>About</h2>
+      <p>Welcome to Closette, your digital space for <br>
+        effortless style and inspiration. We believe fashion should be <br>
+        simple, creative, and true to who you are. Closette brings together <br>
+        smart design and technology to help you organize outfits, explore <br>
+        new looks, and express your personality with confidence. <br>
+        Every feature is made to make styling easy, fun,  <br>
+        and uniquely yours. Discoverfashion that fits <br>
+        your life only here at Closette.</p>
+      </div>
+      <div class="start-curating">
+      <h3>Start Curating Here!</h3>
+      <a href="{{ url_for('input_page') }}"><img src="{{ url_for('static', filename='add.png') }} " alt="add" class="add-input"></a>
+       </div>
+  
+ <div class="spacer"></div>
+ 
+  <div class="floating-content">
+    <img src="{{ url_for('static', filename='unnamed (24).jpg') }}" alt="floating1">
+    <img src="{{ url_for('static', filename='unnamed (18).jpg') }}" alt="floating2">
+  </div>
+      <img src="{{ url_for('static', filename='unnamed (32).jpg') }}" class = "model" alt="model">
+<div class="flowers">
+  <img src="{{ url_for('static', filename='unnamed (20).jpg') }}" alt="flower1">
+  <img src="{{ url_for('static', filename='unnamed (21).jpg') }}" alt="flower2">
+</div>
+
+
+<footer class="footer">
+  <p>"Elegance is when the inside is as beautiful as the outside." – Coco Chanel</p>
+  <span>© 2025 Kristine Ann | All Rights Reserved</span>
+</footer>
+
+
+
+     
+    
+  
+      
+    
+    
+
+
+ <div class="spacer"></div>
+
+
+
+
+<script>
+window.addEventListener('scroll', function() {
+  const start = document.querySelector('.start');
+  const rect = start.getBoundingClientRect();
+  if (rect.top < window.innerHeight && rect.bottom >= 0) {
+    start.classList.add('bounce');
+  }
+});
+</script>
+
+<script>
+  const containers = document.querySelectorAll('.image-container');
+  function showImagesOnScroll() {
+    containers.forEach(container => {
+      const rect = container.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        container.classList.add('show');
+      } 
+    });
+  }
+  window.addEventListener('scroll', showImagesOnScroll);
+  showImagesOnScroll();
+</script>
+
+   
+
+</body>

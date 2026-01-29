@@ -1,0 +1,73 @@
+.main-page {
+    font-family: Arial, sans-serif;
+    background-color: #f5f2f1;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-bar {
+    background-color: #e7d1adcb; /* soft pink/purple tone */
+    padding: 20px;
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 60px;
+    right: 30%;
+    width: 35%;
+    border-radius: 40px;
+    z-index: 1000;
+}
+
+.nav-bar a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+.nav-bar a:hover {
+    transform: scale(1.1); /* slight pop effect */
+    font-weight: bold;
+}
+
+.closet-container {
+    margin-top: 20%; /* FIX: space under navbar */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+    
+.closet-item {
+    background-color: #e2c2c2;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.closet-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover; /* FIX: same-size images */
+    border-radius: 10px;
+}
+.title {
+    margin-left: 43%;
+    margin-top: -10%;
+    position: absolute;
+  font-family: "Playwrite US Trad Guides", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 60px;
+}
+
+
+    

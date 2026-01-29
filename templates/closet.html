@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mainpage - Dressing system</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='closet.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playwrite+US+Trad+Guides&display=swap" rel="stylesheet">
+
+</head>
+<body class="main-page">
+    <div class="nav-bar">
+        <a href="{{ url_for('mainpage') }}">Home</a>
+        <a href="{{ url_for('input_page') }}">Add Item</a> <!-- Link to the input page -->
+        <a href="{{ url_for('closet_page') }}">My Closet</a> <!-- Link to the closet page -->
+         </div>
+
+    <h2 class="title">Closette</h2>
+
+<div class="closet-container">
+    {% for item in clothing_list %}
+    <div class="closet-item">
+        <p>Name: {{ item[1] }}</p>
+        <p>Color: {{ item[2] }}</p>
+        <p>Category: {{ item[3] }}</p>
+
+        {% if item[4] %}
+        <img src="{{ url_for('static', filename='uploads/' ~ item[4]) }}" alt="clothing image">
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+    
+
+</body>

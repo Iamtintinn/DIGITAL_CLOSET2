@@ -1,0 +1,378 @@
+/* --- Global & Main Page Styles --- */
+.main-page {
+    background-color: #ffffff; /* light background for main page */
+    height: 300vh;
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Navigation Bar --- */
+.nav-bar {
+    background-color: #e7d1adcb; /* soft pink/purple tone */
+    padding: 20px;
+    display: flex;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 60px;
+    right: 30%;
+    width: 35%;
+    border-radius: 40px;
+    z-index: 1000;
+}
+
+.nav-bar a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings: "wdth" 100;
+}
+
+.nav-bar a:hover {
+    transform: scale(1.1); /* slight pop effect */
+    font-weight: bold;
+}
+
+/* --- Hero Section --- */
+.front-image {
+    width: 101.5%;
+    height: 52%;
+    top: 0px;
+    margin-top: 0px;
+}
+
+.closette {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: rgba(255, 255, 255, 0.87);
+    font-family: "Playwrite MX Guides", cursive;
+    top: 57%;
+}
+
+.clos, .ette {
+    display: inline-block;
+    font-size: 130px;
+    animation: split 2s ease forwards;
+}
+
+@keyframes split {
+    0% { transform: translateX(0); opacity: 0; }
+    40% { opacity: 1; }
+    100% { transform: translateX(var(--move)); opacity: 1; }
+}
+
+.clos {
+    --move: -71%;
+}
+
+.ette {
+    --move: 130%;
+}
+
+/* Tagline styling */
+.tagline {
+    position: absolute;
+    top: 62%; /* adjust depending on where you want it */
+    left: 52%;
+    transform: translate(-50%, -50%);
+    font-size: 22px;
+    color: white;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeIn 3s ease 2s forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* --- Welcome/Scroll Section --- */
+.welcome-text {
+    position: absolute;
+    top: 147.5%;
+    text-align: center;
+    left: 10%;
+    text-align: justify;
+}
+
+.start {
+    margin-bottom: 0px;
+    color: #ffffff;
+    font-size: 50px;
+    font-family: "Roboto", sans-serif;
+    opacity: 0; /* hidden at first */
+    transform: translateY(100px); /* slightly below */
+    transition: all 0.5s ease-out;
+    margin-bottom: -29px;
+    padding-bottom: 0px;
+}
+
+/* bounce animation */
+.start.bounce {
+    animation: bounceIn 1.5s ease-out;
+    opacity: 1; /* fade in */
+    transform: translateY(0);
+}
+
+@keyframes bounceIn {
+    0% { transform: translateY(-200px); opacity: 0; }
+    60% { transform: translateY(30px); opacity: 1; }
+    80% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 40px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.image-container img {
+    width: 150%;
+    max-width: 750px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    transform: translateY(50px) scale(0.9);
+    opacity: 0;
+    transition: transform 1.5s ease-out, opacity 1.5s ease-out;
+}
+
+/* ✨ When the image-container becomes visible */
+.image-container.show img {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+/* --- About Me Section --- */
+.about-me {
+    position: relative;
+    text-align: center;
+    margin: 120px auto;
+    max-width: 900px;
+    font-size: 22px;
+    color: #333;
+}
+
+.about-me-pic {
+    width: 250px;
+    height: auto;
+    margin-bottom: 25px;
+    border-radius: 50%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: transform 0.6s ease;
+}
+
+.about-me-pic:hover {
+    transform: scale(1.08);
+}
+
+.about-me h2 {
+    font-size: 60px;
+    margin-bottom: 15px;
+    font-family: "Playfair Display", serif;
+    font-weight: 700;
+    font-style: italic;
+    color: #c7a867; /* soft gold accent */
+}
+
+.about-me p {
+    font-family: "Inter", sans-serif;
+    line-height: 1.8;
+    font-size: 20px;
+    color: #444;
+    opacity: 0.9;
+}
+
+/* --- START CURATING Section (Original Blocks) --- */
+
+/* First Definition */
+.start-curating {
+    margin-top: 100px;
+    text-align: center;
+    font-size: 36px;
+    color: #d3b564;
+    font-family: "Crimson Text", serif;
+    font-weight: 500;
+    font-style: italic;
+    letter-spacing: 1px;
+    transition: transform 0.4s ease;
+}
+
+.start-curating:hover {
+    transform: scale(1.05);
+}
+
+/* First Definition (for a general button) */
+.add-input {
+    width: 80px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.add-input:hover {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+.spacer {
+    height: 100vh; /* adjust height as needed */
+}
+
+/* Second Definition (Overwrites some properties from first .start-curating) */
+.start-curating {
+    margin-left: 60%;
+    margin-top: 20px;
+    font-size: 30px;
+    color: #dab848b6;
+    font-family: "Crimson Text", serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Second Definition (Overwrites some properties from first .add-input) */
+.add-input {
+    width: 8%;
+    margin-left: 5%;
+}
+
+/* --- Floating Content Section --- */
+.floating-content {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px; /* more space between photos */
+    margin-top: -35%;
+}
+
+.floating-content img {
+    width: 650px; /* increased size */
+    height: auto;
+    border-radius: 30px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    transform: translateY(100px) scale(0.9);
+    animation: floatIn 1.8s ease-out forwards;
+}
+
+.floating-content img:nth-child(1) {
+    animation-delay: 0.2s;
+    transform: translateX(-180px);
+}
+
+.floating-content img:nth-child(2) {
+    animation-delay: 0.5s;
+    transform: translateX(180px);
+}
+
+@keyframes floatIn {
+    0% { opacity: 0; transform: translateY(100px) scale(0.9); }
+    60% { opacity: 1; transform: translateY(-15px) scale(1.05); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ✨ Floating motion when hovering */
+.floating-content img:hover {
+    animation: gentleFloat 4s ease-in-out infinite alternate;
+    transform: translateY(-10px) scale(1.08);
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.45);
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+@keyframes gentleFloat {
+    0% { transform: translateY(0) scale(1.05); }
+    100% { transform: translateY(-25px) scale(1.08); }
+}
+
+/* Moving glowing background behind floating images */
+.floating-content::before {
+    content: "";
+    position: absolute;
+    top: -40%;
+    left: -30%;
+    width: 160%;
+    height: 180%;
+    background: linear-gradient(120deg, #e4dcc5, #d1b0a6, #e4d1dc, #f1e1d0);
+    background-size: 400% 400%;
+    animation: moveBg 12s ease infinite;
+    filter: blur(100px);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.8;
+}
+
+@keyframes moveBg {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Flower Section --- */
+.flowers {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* space between the two photos */
+    margin-top: 550px; /* move it lower on the page */
+}
+
+.flowers img {
+    width: 300px; /* make the photos bigger */
+    height: auto;
+    border-radius: 20px; /* optional: rounded corners */
+    transition: transform 0.3s ease;
+}
+
+.flowers img:hover {
+    transform: scale(1.1); /* makes them pop when hovered */
+}
+
+/* --- Footer --- */
+.footer {
+    margin-top: 10%;
+    text-align: center;
+    padding: 40px;
+    background-color: #f9f3f7;
+    font-family: "Crimson Text", serif;
+    font-size: 18px;
+    color: #555;
+}
+
+.footer span {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    opacity: 0.7;
+}
+.model {
+  width: 80%;             /* responsive width */
+  max-width: 1000px;      /* limit max size */
+  height: auto;           /* maintain aspect ratio */
+  border-radius: 20px;    /* rounded corners */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* subtle shadow */
+  display: block;
+  margin: 15% auto 5% auto;  /* top margin increased to lower the image */
+  
+  /* smooth floating animation */
+  animation: floatSmooth 6s ease-in-out infinite alternate;
+  transition: transform 1s ease, box-shadow 1s ease;
+}

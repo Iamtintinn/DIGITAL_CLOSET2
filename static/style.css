@@ -1,0 +1,131 @@
+body {
+  background-image: url("/static/unnamed (5).jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end; /* moves content to the right */
+  align-items: center;       /* centers vertically */
+  margin: 0;
+}
+
+.title h2 {
+  position: absolute;
+  top: 140px;          /* move it higher */
+  right: 515px;       /* keep it aligned right */
+  font-size: 40px;
+  color: #ffffff;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  font-family: "Playwrite MX Guides", cursive;
+  font-weight: 400;
+}
+
+.tagline {
+  position: absolute;
+  top: 800px;          /* slightly below the title */
+  right: 420px;       /* same as title */
+  font-size: 16px;
+  color: #fff;
+  opacity: 0.8;
+  text-align: right;
+  letter-spacing: 1px;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-weight: 400;
+}
+
+
+
+.login-container {
+  background-color: rgba(212, 195, 206, 0.8); /* optional: white box with transparency */
+  padding: 50px;
+  border-radius: 10px;
+  width: 300px;
+  margin-right: 390px; /* add some space from the right edge */
+  margin-top: 150px; /* add this to push it down */
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  box-shadow: 20px 10px 10px rgba(88, 87, 87, 0.1); /* subtle shadow for depth */
+  
+}
+  
+.login-container h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 35px;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+
+}
+.input-group input {
+  width: 95%;                  /* make the input take the full width of its container */
+  padding: 6px 10px;            /* smaller padding: 6px top/bottom, 10px left/right → makes box shorter */
+  border: 2px solid #b39cab;    /* sets the border color and thickness */
+  border-radius: 8px;           /* rounded corners of the input */
+  font-size: 16px;               /* size of the text inside the input */
+  font-family: "Open Sans", sans-serif; /* font style */
+  outline: none;                 /* removes the default blue outline on focus */
+  transition: 0.3s;              /* smooth transition effect when border or shadow changes */
+  background-color: #e9dee6;        /* white background for the input field */
+  
+}
+
+input:hover {
+  border-color: #c079a6;        /* changes border color on hover */
+  box-shadow: 0 0 8px rgba(192, 121, 166, 0.5); /* subtle shadow effect on hover */
+  
+}
+
+.input-group label {
+  display: block;               /* makes the label take up the full width */
+  margin-bottom: 8px;          /* space between label and input */
+  font-size: 18px;              /* size of the label text */
+  color: #333;                  /* dark color for better readability */
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 20px;
+  background-color: #c079a6; /* soft pink/purple tone */
+  color: rgb(65, 62, 62);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  width: 102%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* When you hover over it */
+button:hover {
+  background-color: #d6c2d0; /* darker shade for hover effect */
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center; /* align multiple buttons */
+  margin-top: 20px;
+  gap: 15px; /* space between icons */
+}
+
+.social-icons i {
+  font-size: 24px;
+  color: #333;
+  cursor: pointer;
+
+}
+.login-container p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #333;
+}
+
+.main-page {
+  background-color: #f5f5f5; /* light background for main page */
+  height: 100vh;
+}
+
