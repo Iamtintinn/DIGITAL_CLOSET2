@@ -5,15 +5,15 @@ body {
   background-repeat: no-repeat;
   height: 100vh;
   display: flex;
-  justify-content: flex-end; /* moves content to the right */
-  align-items: center;       /* centers vertically */
+  justify-content: flex-end;
+  align-items: center;
   margin: 0;
 }
 
 .title h2 {
   position: absolute;
-  top: 140px;          /* move it higher */
-  right: 515px;       /* keep it aligned right */
+  top: 140px;
+  right: 515px;
   font-size: 40px;
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
@@ -23,8 +23,8 @@ body {
 
 .tagline {
   position: absolute;
-  top: 800px;          /* slightly below the title */
-  right: 420px;       /* same as title */
+  top: 800px;
+  right: 420px;
   font-size: 16px;
   color: #fff;
   opacity: 0.8;
@@ -34,21 +34,18 @@ body {
   font-weight: 400;
 }
 
-
-
 .login-container {
-  background-color: rgba(212, 195, 206, 0.8); /* optional: white box with transparency */
+  background-color: rgba(212, 195, 206, 0.8);
   padding: 50px;
   border-radius: 10px;
   width: 300px;
-  margin-right: 390px; /* add some space from the right edge */
-  margin-top: 150px; /* add this to push it down */
+  margin-right: 390px;
+  margin-top: 150px;
   font-size: 18px;
   font-family: "Open Sans", sans-serif;
-  box-shadow: 20px 10px 10px rgba(88, 87, 87, 0.1); /* subtle shadow for depth */
-  
+  box-shadow: 20px 10px 10px rgba(88, 87, 87, 0.1);
 }
-  
+
 .login-container h1 {
   text-align: center;
   margin-bottom: 30px;
@@ -57,38 +54,36 @@ body {
   font-optical-sizing: auto;
   font-weight: weight;
   font-style: normal;
-
 }
+
 .input-group input {
-  width: 95%;                  /* make the input take the full width of its container */
-  padding: 6px 10px;            /* smaller padding: 6px top/bottom, 10px left/right → makes box shorter */
-  border: 2px solid #b39cab;    /* sets the border color and thickness */
-  border-radius: 8px;           /* rounded corners of the input */
-  font-size: 16px;               /* size of the text inside the input */
-  font-family: "Open Sans", sans-serif; /* font style */
-  outline: none;                 /* removes the default blue outline on focus */
-  transition: 0.3s;              /* smooth transition effect when border or shadow changes */
-  background-color: #e9dee6;        /* white background for the input field */
-  
+  width: 95%;
+  padding: 6px 10px;
+  border: 2px solid #b39cab;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  outline: none;
+  transition: 0.3s;
+  background-color: #e9dee6;
 }
 
 input:hover {
-  border-color: #c079a6;        /* changes border color on hover */
-  box-shadow: 0 0 8px rgba(192, 121, 166, 0.5); /* subtle shadow effect on hover */
-  
+  border-color: #c079a6;
+  box-shadow: 0 0 8px rgba(192, 121, 166, 0.5);
 }
 
 .input-group label {
-  display: block;               /* makes the label take up the full width */
-  margin-bottom: 8px;          /* space between label and input */
-  font-size: 18px;              /* size of the label text */
-  color: #333;                  /* dark color for better readability */
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+  color: #333;
   margin-top: 10px;
 }
 
 button {
   margin-top: 20px;
-  background-color: #c079a6; /* soft pink/purple tone */
+  background-color: #c079a6;
   color: rgb(65, 62, 62);
   border: none;
   padding: 10px 20px;
@@ -99,24 +94,23 @@ button {
   transition: 0.3s;
 }
 
-/* When you hover over it */
 button:hover {
-  background-color: #d6c2d0; /* darker shade for hover effect */
+  background-color: #d6c2d0;
 }
 
 .social-icons {
   display: flex;
-  justify-content: center; /* align multiple buttons */
+  justify-content: center;
   margin-top: 20px;
-  gap: 15px; /* space between icons */
+  gap: 15px;
 }
 
 .social-icons i {
   font-size: 24px;
   color: #333;
   cursor: pointer;
-
 }
+
 .login-container p {
   text-align: center;
   margin-top: 20px;
@@ -125,7 +119,29 @@ button:hover {
 }
 
 .main-page {
-  background-color: #f5f5f5; /* light background for main page */
+  background-color: #f5f5f5;
   height: 100vh;
 }
 
+/* Responsive only – same layout, adjusted for viewport */
+@media (max-width: 1200px) {
+  .title h2 { right: 30%; font-size: 36px; }
+  .tagline { right: 25%; font-size: 15px; top: 75vh; }
+  .login-container { margin-right: 15%; }
+}
+
+@media (max-width: 768px) {
+  body { flex-direction: column; justify-content: center; align-items: center; }
+  .title { text-align: center; }
+  .title h2 { position: relative; top: auto; right: auto; text-align: center; margin: 20px auto 0; display: block; }
+  .tagline { position: relative; top: auto; right: auto; text-align: center; margin: 5px auto 20px; display: block; }
+  .login-container { margin-right: 0; margin-top: 20px; margin-left: 0; }
+}
+
+@media (max-width: 480px) {
+  .login-container { width: 90%; max-width: 300px; padding: 30px; }
+  .input-group input { width: 100%; box-sizing: border-box; }
+  button { width: 100%; box-sizing: border-box; }
+  .title h2 { font-size: 32px; }
+  .login-container h1 { font-size: 28px; }
+}

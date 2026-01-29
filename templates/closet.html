@@ -3,37 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mainpage - Dressing system</title>
+    <title>My Closet – Closette</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='closet.css') }}">
+    <link rel="stylesheet" href="https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playwrite+US+Trad+Guides&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700&family=Inter:wght@400;500;600&family=Playwrite+US+Trad+Guides&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
-<body class="main-page">
-    <div class="nav-bar">
-        <a href="{{ url_for('mainpage') }}">Home</a>
-        <a href="{{ url_for('input_page') }}">Add Item</a> <!-- Link to the input page -->
-        <a href="{{ url_for('closet_page') }}">My Closet</a> <!-- Link to the closet page -->
-         </div>
+<body class="main-page closet-page">
+    <nav class="nav-bar">
+        <a href="{{ url_for('mainpage') }}"><i class="fi fi-rr-home"></i> Home</a>
+        <a href="{{ url_for('input_page') }}"><i class="fi fi-rr-add"></i> Add Item</a>
+        <a href="{{ url_for('closet_page') }}"><i class="fi fi-rr-apps"></i> My Closet</a>
+    </nav>
 
-    <h2 class="title">Closette</h2>
+    <h1 class="page-title">My Closet</h1>
+    <p class="page-subtitle">Curate your style</p>
 
-<div class="closet-container">
-    {% for item in clothing_list %}
-    <div class="closet-item">
-        <p>Name: {{ item[1] }}</p>
-        <p>Color: {{ item[2] }}</p>
-        <p>Category: {{ item[3] }}</p>
-
-        {% if item[4] %}
-        <img src="{{ url_for('static', filename='uploads/' ~ item[4]) }}" alt="clothing image">
-        {% endif %}
+    <div class="closet-container">
+        {% for item in clothing_list %}
+        <article class="closet-item">
+            <div class="closet-item-img-wrap">
+                {% if item[4] %}
+                <img src="{{ url_for('static', filename='uploads/' ~ item[4]) }}" alt="{{ item[1] }}">
+                {% else %}
+                <div class="closet-item-placeholder"><i class="fi fi-rr-picture"></i></div>
+                {% endif %}
+            </div>
+            <div class="closet-item-info">
+                <p class="name"><i class="fi fi-rr-tag"></i> {{ item[1] }}</p>
+                <p class="color"><i class="fi fi-rr-palette"></i> {{ item[2] }}</p>
+                <p class="category"><i class="fi fi-rr-folder"></i> {{ item[3] }}</p>
+            </div>
+        </article>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
-
-    
-
 </body>
+</html>

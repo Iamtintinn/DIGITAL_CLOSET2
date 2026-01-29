@@ -1,73 +1,203 @@
-.main-page {
-    font-family: Arial, sans-serif;
-    background-color: #f5f2f1;
-    margin: 0;
-    padding: 0;
+/* --- Variables: feminine, calming (match input) --- */
+:root {
+  --bg-page: #f8f4f7;
+  --bg-card: #fefcfe;
+  --border-soft: #e8dfe8;
+  --accent: #c4a4b4;
+  --accent-hover: #b08d9e;
+  --accent-soft: #e8dce4;
+  --text: #5c4a54;
+  --text-muted: #7d6a75;
+  --nav-bg: #e7d1ad;
+  --nav-text: #fff;
+  --shadow: 0 4px 20px rgba(120, 90, 110, 0.08);
+  --shadow-hover: 0 10px 32px rgba(120, 90, 110, 0.14);
+  --radius: 14px;
+  --radius-sm: 10px;
 }
 
-.nav-bar {
-    background-color: #e7d1adcb; /* soft pink/purple tone */
-    padding: 20px;
-    display: flex;
-    gap: 60px;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 60px;
-    right: 30%;
-    width: 35%;
-    border-radius: 40px;
-    z-index: 1000;
+/* --- Base --- */
+.closet-page.main-page {
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background-color: var(--bg-page);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  padding-top: 160px;
+  padding-bottom: 48px;
+  box-sizing: border-box;
 }
 
-.nav-bar a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    font-family: "Roboto", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-variation-settings: "wdth" 100;
+/* --- Nav: mainpage-style pill (not end-to-end) --- */
+.closet-page .nav-bar {
+  background-color: var(--nav-bg);
+  padding: 18px 28px;
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36%;
+  min-width: 280px;
+  max-width: 420px;
+  border-radius: 40px;
+  z-index: 1000;
+  box-shadow: 0 6px 24px rgba(120, 90, 110, 0.12);
 }
 
-.nav-bar a:hover {
-    transform: scale(1.1); /* slight pop effect */
-    font-weight: bold;
+.closet-page .nav-bar a {
+  color: var(--nav-text);
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  font-family: "Roboto", sans-serif;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: transform 0.2s, color 0.2s;
 }
 
+.closet-page .nav-bar a i {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.closet-page .nav-bar a:hover {
+  transform: scale(1.1);
+  font-weight: bold;
+}
+
+/* --- Page header --- */
+.closet-page .page-title {
+  font-family: "Crimson Text", "Playwrite US Trad Guides", serif;
+  font-size: 2rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--text);
+  text-align: center;
+  margin: 0 0 0.35rem;
+}
+
+.closet-page .page-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 0 0 2.5rem;
+  letter-spacing: 0.5px;
+}
+
+/* --- Closet grid --- */
 .closet-container {
-    margin-top: 20%; /* FIX: space under navbar */
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    margin-left: 100px;
-    margin-right: 100px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+  gap: 1.5rem;
+  padding: 0 24px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-    
+
 .closet-item {
-    background-color: #e2c2c2;
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-soft);
+  transition: box-shadow 0.25s, transform 0.25s;
 }
 
-.closet-item img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover; /* FIX: same-size images */
-    border-radius: 10px;
-}
-.title {
-    margin-left: 43%;
-    margin-top: -10%;
-    position: absolute;
-  font-family: "Playwrite US Trad Guides", cursive;
-  font-weight: 400;
-  font-style: normal;
-  font-size: 60px;
+.closet-item:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
 }
 
+.closet-item-img-wrap {
+  aspect-ratio: 3 / 4;
+  background: var(--accent-soft);
+  position: relative;
+}
 
-    
+.closet-item-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.closet-item-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 2.5rem;
+  opacity: 0.5;
+}
+
+.closet-item-info {
+  padding: 1rem 1.15rem;
+}
+
+.closet-item-info p {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-bottom: 0.35rem;
+}
+
+.closet-item-info p:last-child {
+  margin-bottom: 0;
+}
+
+.closet-item-info p i {
+  color: var(--accent);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .closet-container {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+    gap: 1.25rem;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .closet-page.main-page {
+    padding-top: 150px;
+  }
+
+  .closet-page .nav-bar {
+    width: 88%;
+    min-width: auto;
+    gap: 28px;
+    padding: 14px 20px;
+  }
+
+  .closet-page .nav-bar a {
+    font-size: 0.95rem;
+  }
+
+  .closet-page .page-title {
+    font-size: 1.6rem;
+  }
+
+  .closet-page .page-subtitle {
+    margin-bottom: 2rem;
+  }
+
+  .closet-container {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+    gap: 1rem;
+  }
+}

@@ -13,20 +13,18 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playwrite+MX+Guides&display=swap" rel="stylesheet">
 </head>
-<body class = "login-page">
-   <div class ="title">
+<body class="login-page">
+   <div class="title">
     <h2>Closette</h2>
      <p class="tagline">Curate Your Style</p>
      </div>
-       
 
-  
     <div class="login-container">
         <h1>Login</h1>
         <form action="{{ url_for('login') }}" method="POST">
             <div class="input-group">
                 <label>Username</label>
-                <input type="text" name="username" required> 
+                <input type="text" name="username" required>
             </div>
             <div class="input-group">
                 <label>Password</label>
@@ -40,6 +38,6 @@
             <i class="fi fi-brands-instagram"></i>
             <i class="fi fi-brands-google"></i>
 </div>
-       
+    </div>
 </body>
 </html>
