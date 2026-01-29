@@ -4,22 +4,21 @@ import mysql.connector
 from flask import Flask, render_template, request, redirect, url_for
 import os
 
-# ----------------- AUTO DATABASE SETUP -----------------
 def setup_database():
-    # Connect to MySQL server (no database yet)
+   
     db = mysql.connector.connect(
         host="localhost",
-        user="root",    # XAMPP default
-        password="",    # XAMPP default
-        port=3306       # XAMPP default port
+        user="root",    
+        password="",    
+        port=3306       
     )
     cursor = db.cursor()
 
-    # Create database if it doesn't exist
+   
     cursor.execute("CREATE DATABASE IF NOT EXISTS dress")
     cursor.execute("USE dress")
 
-    # Create table if it doesn't exist
+
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS clothes (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -138,6 +137,6 @@ def closet_page():
     clothes = cursor.fetchall()
     return render_template('closet.html', clothing_list=clothes)
 
-# ----------------- RUN APP -----------------
+
 if __name__ == '__main__':
     app.run(debug=True)
